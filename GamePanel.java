@@ -151,21 +151,34 @@ public class GamePanel extends JPanel implements ActionListener
         }
     }
 
-    public void checkApple()
+    public void checkApple() 
     {
-        if( (x[0] == appleX) && ( y[0] == appleY ))
-        {
-            bodyParts++; 
-            applesEaten++ ; 
-            newApple1(); 
+        if ((x[0] == appleX) && (y[0] == appleY)) {
+            bodyParts++;
+            applesEaten++;
+            newApple1();
+            playSound(); // duu 
+            increaseSpeed(); // hurd 
         }
+        if ((x[0] == appleX2) && (y[0] == appleY2)) {
+            bodyParts++;
+            applesEaten++;
+            newApple2();
+            playSound(); // duu 
+            increaseSpeed(); // speed 
+        }
+    }
 
-        if( (x[0] == appleX2) && ( y[0] == appleY2 ))
-        {
-            bodyParts++; 
-            applesEaten++ ; 
-            newApple2(); 
+    public void increaseSpeed() 
+    {
+        if (timer.getDelay() > 50) { // хамгийн хурдан хязгаар
+            timer.setDelay(timer.getDelay() - 1);
         }
+    }
+
+    public void playSound() 
+    {
+        Toolkit.getDefaultToolkit().beep();
     }
 
     public void checkBorder()
@@ -188,7 +201,11 @@ public class GamePanel extends JPanel implements ActionListener
             }
         }
 
-        if( !running) timer.stop(); 
+        if( !running)
+        {
+            timer.stop(); 
+             oolkit.getDefaultToolkit().beep(); //  game over sound 
+        }
         
     }
 
