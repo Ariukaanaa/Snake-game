@@ -172,7 +172,7 @@ public class GamePanel extends JPanel implements ActionListener
     public void increaseSpeed() 
     {
         if (timer.getDelay() > 50) { // хамгийн хурдан хязгаар
-            timer.setDelay(timer.getDelay() - 1);
+            timer.setDelay(timer.getDelay() - 2);
         }
     }
 
@@ -204,7 +204,7 @@ public class GamePanel extends JPanel implements ActionListener
         if( !running)
         {
             timer.stop(); 
-             oolkit.getDefaultToolkit().beep(); //  game over sound 
+            Toolkit.getDefaultToolkit().beep(); //  game over sound 
         }
         
     }
